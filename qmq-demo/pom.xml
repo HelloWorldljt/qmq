@@ -13,8 +13,8 @@
 
     <properties>
         <maven_deploy_skip>true</maven_deploy_skip>
-
         <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+        <qmq-client.version>1.1.22</qmq-client.version>
     </properties>
 
     <dependencyManagement>
@@ -54,6 +54,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.qunar.qmq/qmq -->
+        <dependency>
+            <groupId>com.qunar.qmq</groupId>
+            <artifactId>qmq</artifactId>
+            <version>${qmq-client.version}</version>
         </dependency>
     </dependencies>
 </project>

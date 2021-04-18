@@ -16,12 +16,15 @@
 
 package qunar.tc.qmq.demo.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import qunar.tc.qmq.Message;
 import qunar.tc.qmq.consumer.annotation.QmqConsumer;
 
 @Service
 public class OrderChangedConsumer {
+    private static final Logger LOG = LoggerFactory.getLogger(OrderChangedConsumer.class);
 
     @QmqConsumer(subject = "order.changed", consumerGroup = "ordercenter", executor = "workerExecutor")
     public void onMessage(Message message) {
@@ -29,5 +32,6 @@ public class OrderChangedConsumer {
         String name = message.getStringProperty("name");
 
         //do work
+        LOG.info("OrderChangedConsumer onMessage,orderId:{},name:{}",orderId,name);
     }
 }
